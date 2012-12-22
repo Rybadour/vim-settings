@@ -5,13 +5,14 @@ set rnu
 set bs=2
 set switchbuf=usetab
 set smartindent
+set incsearch
+set hlsearch
 nnoremap \ "_
-map #1 "_deP
-map #2 "_di)P
-map #3 "_di"P
-map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 set timeoutlen=2000
 set wildmenu
+
+" Redefine s as our replace operator
+map s <Plug>(operator-replace)
 
 " Better tabpage controls
 	" Show tab numbers
@@ -44,6 +45,9 @@ set wildmenu
 set guioptions-=m
 set guioptions-=T
 au GUIEnter * simalt ~x
+
+" CTags related stuff
+map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 
 " Syntax highlighting
 syntax on
