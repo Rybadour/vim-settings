@@ -19,6 +19,16 @@ Notable Sections
   
     " return to last visited tab
     map gr :exe "tabn " . g:ltv<CR>
+    function! Setlasttabpagevisited()
+        let g:ltv = tabpagenr()
+    endfunction
+    augroup localtl
+    " Remove all localtl autocommands
+    au!
+    " keep tally of the last tab page visited.
+    autocmd TabLeave * call Setlasttabpagevisited()
+    augroup END
+    autocmd VimEnter * let g:ltv = 1
   
     " more conveinent mapping for go to nth tab
     map gn :tabn
