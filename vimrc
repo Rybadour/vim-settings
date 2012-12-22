@@ -4,12 +4,46 @@ set cursorline
 set rnu
 set bs=2
 set switchbuf=usetab
+set smartindent
 nnoremap \ "_
 map #1 "_deP
 map #2 "_di)P
 map #3 "_di"P
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
-set smartindent
+set timeoutlen=2000
+set wildmenu
+
+" Better tabpage controls
+	" Show tab numbers
+	set guitablabel=%N/\ %t\ %M
+
+	" more conveinent mapping for go to nth tab
+	map gn :tabn
+
+	" more conveinent mapping for previous tab
+	map ge gT
+
+	" return to the last tab page visited.
+	" Courtesy of S. Cowles (http://vim.1045645.n5.nabble.com/jump-to-last-visited-tabpage-td1172955.html)
+	map gr :exe "tabn " . g:ltv<CR>
+
+	" referred to by TabLeave autocmd.
+	function! Setlasttabpagevisited()
+		let g:ltv = tabpagenr()
+	endfunction
+
+	augroup localtl
+	" Remove all localtl autocommands
+	au!
+	" keep tally of the last tab page visited.
+	autocmd TabLeave * call Setlasttabpagevisited()
+	augroup END
+	autocmd VimEnter * let g:ltv = 1
+
+" Configure Gvim to fullscreen
+set guioptions-=m
+set guioptions-=T
+au GUIEnter * simalt ~x
 
 " Syntax highlighting
 syntax on
