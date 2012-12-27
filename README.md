@@ -8,6 +8,7 @@ Plugins Used
 
 * **operator-replace**: http://www.vim.org/scripts/script.php?script_id=2782
 * **camelcasemotion**: http://www.vim.org/scripts/script.php?script_id=1905
+* **matchit**: http://www.vim.org/scripts/script.php?script_id=39
 
 Notable Sections
 ----------------
