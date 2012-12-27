@@ -10,6 +10,8 @@ set hlsearch
 nnoremap \ "_
 set timeoutlen=2000
 set wildmenu
+nmap ,p :pu<CR>
+nmap ,P :pu!<CR>
 
 " Redefine s as our replace operator
 map s <Plug>(operator-replace)
