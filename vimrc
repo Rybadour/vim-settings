@@ -12,6 +12,7 @@ set timeoutlen=2000
 set wildmenu
 nmap ,p :pu<CR>
 nmap ,P :pu!<CR>
+filetype plugin on
 
 " Redefine s as our replace operator
 map s <Plug>(operator-replace)
