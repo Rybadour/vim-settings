@@ -7,11 +7,13 @@ set switchbuf=usetab
 set smartindent
 set incsearch
 set hlsearch
-nnoremap \ "_
 set timeoutlen=2000
 set wildmenu
+
+nnoremap \ "_
 nmap ,p :pu<CR>
 nmap ,P :pu!<CR>
+
 filetype plugin on
 
 " Redefine s as our replace operator
