@@ -14,7 +14,10 @@ nnoremap \ "_
 nmap ,p :pu<CR>
 nmap ,P :pu!<CR>
 
+set foldlevelstart=99
+
 filetype plugin on
+filetype indent on
 
 " Redefine s as our replace operator
 map s <Plug>(operator-replace)
