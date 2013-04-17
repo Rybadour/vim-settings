@@ -13,6 +13,9 @@ set wildmenu
 nnoremap \ "_
 nmap ,p :pu<CR>
 nmap ,P :pu!<CR>
+nmap <F7> :NERDTree<CR>
+noremap gj <C-W>j<C-W>_
+noremap gk <C-W>k<C-W>_
 
 set foldlevelstart=99
 
