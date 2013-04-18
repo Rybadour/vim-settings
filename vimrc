@@ -10,10 +10,13 @@ set hlsearch
 set timeoutlen=2000
 set wildmenu
 
+" Keep the cursor in the center of the window (vertically)
+set scrolloff=999
+
 nnoremap \ "_
 nmap ,p :pu<CR>
 nmap ,P :pu!<CR>
-nmap <F7> :NERDTree<CR>
+nmap <F7> :NERDTree<CR>:set rnu<CR>
 noremap gj <C-W>j<C-W>_
 noremap gk <C-W>k<C-W>_
 
@@ -37,20 +40,20 @@ map s <Plug>(operator-replace)
 
 	" return to the last tab page visited.
 	" Courtesy of S. Cowles (http://vim.1045645.n5.nabble.com/jump-to-last-visited-tabpage-td1172955.html)
-	map gr :exe "tabn " . g:ltv<CR>
+		map gr :exe "tabn " . g:ltv<CR>
 
-	" referred to by TabLeave autocmd.
-	function! Setlasttabpagevisited()
-		let g:ltv = tabpagenr()
-	endfunction
+		" referred to by TabLeave autocmd.
+		function! Setlasttabpagevisited()
+			let g:ltv = tabpagenr()
+		endfunction
 
-	augroup localtl
-	" Remove all localtl autocommands
-	au!
-	" keep tally of the last tab page visited.
-	autocmd TabLeave * call Setlasttabpagevisited()
-	augroup END
-	autocmd VimEnter * let g:ltv = 1
+		augroup localtl
+		" Remove all localtl autocommands
+		au!
+		" keep tally of the last tab page visited.
+		autocmd TabLeave * call Setlasttabpagevisited()
+		augroup END
+		autocmd VimEnter * let g:ltv = 1
 
 " Configure Gvim to fullscreen
 set guioptions-=m
@@ -78,13 +81,3 @@ hi haxeParen2 guifg=yellowgreen
 filetype on
 au BufNewFile,BufRead *.hx set filetype=haxe
 let tlist_haxe_settings='haxe;f:function;v:variable;c:class;i:interface;p:package'
-
-" Indigo and Lgp
-au BufNewFile,BufRead *.py set tabstop=2
-au BufNewFile,BufRead *.py set shiftwidth=2
-au BufNewFile,BufRead *.py set expandtab
-
-au BufNewFile,BufRead */Spider-Fish/* set tabstop=2
-au BufNewFile,BufRead */Spider-Fish/* set shiftwidth=2
-au BufNewFile,BufRead */Spider-Fish/* set expandtab
-au BufNewFile,BufRead */Spider-Fish/* nmap <F6> $i<Enter><Esc>
