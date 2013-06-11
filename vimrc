@@ -10,20 +10,23 @@ set hlsearch
 set timeoutlen=2000
 set wildmenu
 
-" Keep the cursor in the center of the window (vertically)
-set scrolloff=999
+" Keep the cursor away from the edge of the window
+set scrolloff=10
 
 nnoremap \ "_
 nmap ,p :pu<CR>
 nmap ,P :pu!<CR>
-nmap <F7> :NERDTree<CR>:set rnu<CR>
 noremap gj <C-W>j<C-W>_
 noremap gk <C-W>k<C-W>_
+
+set noequalalways
+nmap <F7> :NERDTree<CR>:set rnu<CR>
+autocmd FileType nerdtree nmap C cdCR
+autocmd FileType nerdtree nmap u u:cd ..<CR> 
 
 set foldlevelstart=99
 
 filetype plugin on
-filetype indent on
 
 " Redefine s as our replace operator
 map s <Plug>(operator-replace)
@@ -65,6 +68,8 @@ map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 
 " Syntax highlighting
 syntax on
+au BufNewFile,BufRead *.md set filetype=markdown
+
 colorscheme desert
 hi Number guifg=Orange
 hi Boolean guifg=Orchid
@@ -81,3 +86,8 @@ hi haxeParen2 guifg=yellowgreen
 filetype on
 au BufNewFile,BufRead *.hx set filetype=haxe
 let tlist_haxe_settings='haxe;f:function;v:variable;c:class;i:interface;p:package'
+
+" Twigs in Kohana projects
+au BufNewFile,BufRead *.html set filetype=twig
+
+filetype indent on
