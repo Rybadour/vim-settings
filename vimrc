@@ -94,4 +94,8 @@ let tlist_haxe_settings='haxe;f:function;v:variable;c:class;i:interface;p:packag
 " Twigs in Kohana projects
 au BufNewFile,BufRead *.html set filetype=twig
 
+" Override text bg for lines longer than 80
+highlight OverLength guibg=#503333
+match OverLength /\%81v.\+/
+
 filetype indent on
