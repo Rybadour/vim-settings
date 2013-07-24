@@ -24,6 +24,10 @@ nmap <F7> :NERDTree<CR>:set rnu<CR>
 autocmd FileType nerdtree nmap C cdCR
 autocmd FileType nerdtree nmap u u:cd ..<CR> 
 
+"Sourced from vim tip: http://vim.wikia.com/wiki/Keep_folds_closed_while_inserting_text
+autocmd InsertEnter * if !exists('w:last_fdm') | let w:last_fdm=&foldmethod | setlocal foldmethod=manual | endif
+autocmd InsertLeave,WinLeave * if exists('w:last_fdm') | let &l:foldmethod=w:last_fdm | unlet w:last_fdm | endif
+
 set foldlevelstart=99
 
 filetype plugin on
