@@ -98,4 +98,8 @@ au BufNewFile,BufRead *.html set filetype=twig
 highlight OverLength guibg=#503333
 match OverLength /\%81v.\+/
 
+" Highlight a trailing colon pink (should be semi-colon)
+highlight OverLength guibg=#FFDDDD
+match OverLength /:$/
+
 filetype indent on
