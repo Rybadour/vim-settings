@@ -2,33 +2,47 @@ set tabstop=4
 set shiftwidth=4
 set cursorline
 set rnu
+set number
 set bs=2
 set switchbuf=usetab
 set smartindent
 set incsearch
 set hlsearch
-set timeoutlen=2000
+set timeoutlen=800
 set wildmenu
+set laststatus=2
+set formatoptions=jcro
+set textwidth=100
 
 " Keep the cursor away from the edge of the window
 set scrolloff=10
 
 nnoremap \ "_
-nmap ,p :pu<CR>
-nmap ,P :pu!<CR>
+nmap ,p :pu<CR>==
+nmap ,P :pu!<CR>==
 noremap gj <C-W>j<C-W>_
 noremap gk <C-W>k<C-W>_
+noremap <ScrollWheelUp> gk
+noremap <ScrollWheelDown> gj
+" Makes cw consistent with everyother use of w (as motion)
+nmap cw dwi
+" Toggles # buffers on <TAB>
+nmap <TAB> :e#<CR>
 
 set noequalalways
-nmap <F7> :NERDTree<CR>:set rnu<CR>
-autocmd FileType nerdtree nmap C cdCR
-autocmd FileType nerdtree nmap u u:cd ..<CR> 
+nmap <F7> :NERDTreeFind<CR>:set rnu<CR>
 
 "Sourced from vim tip: http://vim.wikia.com/wiki/Keep_folds_closed_while_inserting_text
 autocmd InsertEnter * if !exists('w:last_fdm') | let w:last_fdm=&foldmethod | setlocal foldmethod=manual | endif
 autocmd InsertLeave,WinLeave * if exists('w:last_fdm') | let &l:foldmethod=w:last_fdm | unlet w:last_fdm | endif
 
 set foldlevelstart=99
+
+execute pathogen#infect()
+
+"Airline config
+let g:airline_detect_whitespace=0
+let g:airline_powerline_fonts = 1
 
 filetype plugin on
 
@@ -74,7 +88,11 @@ map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 syntax on
 au BufNewFile,BufRead *.md set filetype=markdown
 
-colorscheme desert
+set bg=dark
+let g:solarized_termcolors=256
+let g:solarized_termtrans=1
+colorscheme solarized
+
 hi Number guifg=Orange
 hi Boolean guifg=Orchid
 hi Statement guifg=indianred
@@ -103,3 +121,33 @@ highlight OverLength guibg=#FFDDDD
 match OverLength /:$/
 
 filetype indent on
+
+let g:startify_custom_header = [
+	\ ' ',
+	\ ' ',
+	\ ' ',
+	\ ' ',
+	\ ' ',
+	\ ' ',
+	\ '',
+	\ '',
+	\ ]
+
+let g:startify_list_order = [
+	\ ['   My last recently', '   opened files'],
+	\ 'files',
+	\ ['   My last recently modified files in the current directory:'],
+	\ 'dir',
+	\ ['   These are my sessions:'],
+	\ 'sessions',
+	\ ['   These are my bookmarks:'],
+	\ 'bookmarks',
+	\ ]
+
+" Vaxe configs
+let g:vaxe_prefer_hxml = 'compile.hxml'
+
+" Syntastic configs
+let g:syntastic_mode_map = { 'mode': 'passive',
+						   \ 'active_filetypes': [],
+						   \ 'passive_filetypes': ['haxe'] }
