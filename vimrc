@@ -13,6 +13,13 @@ set wildmenu
 set laststatus=2
 set formatoptions=jcro
 set textwidth=100
+set tags=tags
+
+" If you prefer the Omni-Completion tip window to close when a selection is
+" made, these lines close it on movement in insert mode or when leaving
+" insert mode
+autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
 " Keep the cursor away from the edge of the window
 set scrolloff=10
@@ -30,6 +37,7 @@ nmap cw dwi
 nmap <TAB> :e#<CR>
 
 set noequalalways
+nmap <F6> :call vaxe#Ctags()<CR>:! ctags -R --languages=haxe<CR>
 nmap <F7> :NERDTreeFind<CR>:set rnu<CR>
 
 "Sourced from vim tip: http://vim.wikia.com/wiki/Keep_folds_closed_while_inserting_text
@@ -52,9 +60,6 @@ map s <Plug>(operator-replace)
 " Better tabpage controls
 	" Show tab numbers
 	set guitablabel=%N/\ %t\ %M
-
-	" more conveinent mapping for go to nth tab
-	map gn :tabn
 
 	" more conveinent mapping for previous tab
 	map ge gT
@@ -107,6 +112,8 @@ hi haxeParen2 guifg=yellowgreen
 " Haxe stuff
 filetype on
 au BufNewFile,BufRead *.hx set filetype=haxe
+" Omnicomplete in haxe requires autowrite
+au BufNewFile,BufRead *.hx set autowrite
 let tlist_haxe_settings='haxe;f:function;v:variable;c:class;i:interface;p:package'
 
 " Twigs in Kohana projects
@@ -122,21 +129,31 @@ match OverLength /:$/
 
 filetype indent on
 
+let g:startify_change_to_dir = 0
+let g:startify_change_to_vcs_root = 1
 let g:startify_custom_header = [
-	\ ' ',
-	\ ' ',
-	\ ' ',
-	\ ' ',
-	\ ' ',
-	\ ' ',
-	\ '',
-	\ '',
+    \ '                                            ',
+	\ '   ___   ____.__      _________      _____  ',
+	\ '  \   \ /   /|__| ____\______  \    /  |  | ',
+	\ '   \   Y   / |  |/     \  /    /   /   |  |_',
+	\ '    \     /  |  |  Y Y  \/    /   /    ^   /',
+	\ '     \___/   |__|__|_|  /____/ /\ \____   | ',
+	\ '                      \/       \/      |__| ',
+    \ '                                            ',
+    \ '        ___                                 ',
+	\ '    _.-|   |          |\__/,|   (`\         ',
+	\ '   {   |   |          |o o  |__ _) )        ',
+	\ '    "-.|___|        _.( T   )  `  /         ',
+	\ '     .--`-`-.     _((_ `^--` /_<  \         ',
+	\ '   .+|______|__.-||__)`-`(((/  (((/         ',
+    \ '                                            ',
+    \ '                                            ',
 	\ ]
 
 let g:startify_list_order = [
 	\ ['   My last recently', '   opened files'],
 	\ 'files',
-	\ ['   My last recently modified files in the current directory:'],
+	\ ['   My last recently', '   dir'],
 	\ 'dir',
 	\ ['   These are my sessions:'],
 	\ 'sessions',

@@ -49,3 +49,9 @@
 [submodule "bundle/vaxe"]
 	path = bundle/vaxe
 	url = https://github.com/jdonaldson/vaxe.git
+[submodule "bundle/tagbar"]
+	path = bundle/tagbar
+	url = https://github.com/majutsushi/tagbar.git
+[submodule "bundle/syntastic"]
+	path = bundle/syntastic
+	url = https://github.com/scrooloose/syntastic.git
