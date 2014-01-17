@@ -35,6 +35,8 @@ noremap <ScrollWheelDown> gj
 nmap cw dwi
 " Toggles # buffers on <TAB>
 nmap <TAB> :e#<CR>
+" Toggles current fold on <Space>
+nmap <Space> za
 
 set noequalalways
 nmap <F6> :call vaxe#Ctags()<CR>:! ctags -R --languages=haxe<CR>
@@ -168,3 +170,6 @@ let g:vaxe_prefer_hxml = 'compile.hxml'
 let g:syntastic_mode_map = { 'mode': 'passive',
 						   \ 'active_filetypes': [],
 						   \ 'passive_filetypes': ['haxe'] }
+
+" Tagbar configs
+let g:tagbar_show_linenumbers = 2
