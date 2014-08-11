@@ -46,9 +46,6 @@
 [submodule "bundle/vim-multiple-cursors"]
 	path = bundle/vim-multiple-cursors
 	url = https://github.com/terryma/vim-multiple-cursors.git
-[submodule "bundle/vim-startify"]
-	path = bundle/vim-startify
-	url = https://github.com/mhinz/vim-startify.git
 [submodule "bundle/vaxe"]
 	path = bundle/vaxe
 	url = https://github.com/jdonaldson/vaxe.git
