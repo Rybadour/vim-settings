@@ -1,6 +1,9 @@
 [submodule "bundle/NrrwRgn"]
 	path = bundle/NrrwRgn
 	url = https://github.com/chrisbra/NrrwRgn.git
+[submodule "bundle/ag"]
+	path = bundle/ag
+	url = https://github.com/rking/ag.vim.git
 [submodule "bundle/ag.vim"]
 	path = bundle/ag.vim
 	url = https://github.com/rking/ag.vim.git
@@ -58,9 +61,6 @@
 [submodule "bundle/vim-lesscss"]
 	path = bundle/vim-lesscss
 	url = https://github.com/vitalk/vim-lesscss.git
-[submodule "bundle/mark"]
-	path = bundle/mark
-	url = https://github.com/mbriggs/mark.vim.git
 [submodule "bundle/vim-jdaddy"]
 	path = bundle/vim-jdaddy
 	url = https://github.com/tpope/vim-jdaddy.git
