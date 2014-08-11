@@ -1,6 +1,7 @@
 set tabstop=4
 set shiftwidth=4
 set cursorline
+set cursorcolumn
 set rnu
 set number
 set bs=2
@@ -11,19 +12,21 @@ set hlsearch
 set timeoutlen=800
 set wildmenu
 set laststatus=2
-set formatoptions=jcro
+set formatoptions=jcr
 set textwidth=100
-set tags=tags
+set tags=./tags;
+set foldmethod=indent
 
 " If you prefer the Omni-Completion tip window to close when a selection is
 " made, these lines close it on movement in insert mode or when leaving
 " insert mode
-autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
-autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+"autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+"autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
 " Keep the cursor away from the edge of the window
 set scrolloff=10
 
+nmap ~ ~h
 nnoremap \ "_
 nmap ,p :pu<CR>==
 nmap ,P :pu!<CR>==
@@ -31,22 +34,36 @@ noremap gj <C-W>j<C-W>_
 noremap gk <C-W>k<C-W>_
 noremap <ScrollWheelUp> gk
 noremap <ScrollWheelDown> gj
+nmap gV `[v`]
 " Makes cw consistent with everyother use of w (as motion)
 nmap cw dwi
+" Make sure I can leave buffer without saving, also it maintains undo history
+set hidden
 " Toggles # buffers on <TAB>
 nmap <TAB> :e#<CR>
 " Toggles current fold on <Space>
 nmap <Space> za
 
+nmap cc <Plug>(change-now)
+
 set noequalalways
-nmap <F6> :call vaxe#Ctags()<CR>:! ctags -R --languages=haxe<CR>
 nmap <F7> :NERDTreeFind<CR>:set rnu<CR>
 
 "Sourced from vim tip: http://vim.wikia.com/wiki/Keep_folds_closed_while_inserting_text
-autocmd InsertEnter * if !exists('w:last_fdm') | let w:last_fdm=&foldmethod | setlocal foldmethod=manual | endif
-autocmd InsertLeave,WinLeave * if exists('w:last_fdm') | let &l:foldmethod=w:last_fdm | unlet w:last_fdm | endif
+"autocmd InsertEnter * if !exists('w:last_fdm') | let w:last_fdm=&foldmethod | setlocal foldmethod=manual | endif
+"autocmd InsertLeave,WinLeave * if exists('w:last_fdm') | let &l:foldmethod=w:last_fdm | unlet w:last_fdm | endif
 
 set foldlevelstart=99
+
+" Teaching myself to not use dumb things
+map R <Nop>
+map x <Nop>
+
+" GG no rere
+noremap d "_d
+noremap c "_c
+
+noremap r d
 
 execute pathogen#infect()
 
@@ -58,6 +75,14 @@ filetype plugin on
 
 " Redefine s as our replace operator
 map s <Plug>(operator-replace)
+
+" Redefine l and L as line text objects
+call textobj#user#plugin('line', {
+\      '-': {
+\        'select-a': 'l', '*select-a-function*': 'textobj#line#select_a',
+\        'select-i': 'L', '*select-i-function*': 'textobj#line#select_i',
+\      },
+\    })
 
 " Better tabpage controls
 	" Show tab numbers
@@ -116,10 +141,14 @@ filetype on
 au BufNewFile,BufRead *.hx set filetype=haxe
 " Omnicomplete in haxe requires autowrite
 au BufNewFile,BufRead *.hx set autowrite
+au BufNewFile,BufRead *.hx nmap <F6> :call vaxe#Ctags()<CR>:! ctags -R --languages=haxe<CR>
 let tlist_haxe_settings='haxe;f:function;v:variable;c:class;i:interface;p:package'
 
 " Twigs in Kohana projects
 au BufNewFile,BufRead *.html set filetype=twig
+
+" Less Css easy complitation
+au BufNewFile,BufRead *.less nmap <F6> :! lessc %<CR><CR>
 
 " Override text bg for lines longer than 80
 highlight OverLength guibg=#503333
@@ -167,9 +196,20 @@ let g:startify_list_order = [
 let g:vaxe_prefer_hxml = 'compile.hxml'
 
 " Syntastic configs
+au BufNewFile,BufRead *.js nmap <F6> :SyntasticCheck<CR>
 let g:syntastic_mode_map = { 'mode': 'passive',
-						   \ 'active_filetypes': [],
-						   \ 'passive_filetypes': ['haxe'] }
+						   \ 'active_filetypes': ['javascript', 'php'],
+						   \ 'passive_filetypes': ['haxe', 'd'] }
+let g:syntastic_d_compiler_options = '$(pkg-config --cflags --libs gtkd2)'
 
 " Tagbar configs
 let g:tagbar_show_linenumbers = 2
+
+" Make sure redrawing is lazy
+set lazyredraw
+
+" CtrlP Settings
+let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+" Less Css settings
+let g:lesscss_save_to = '../css/'

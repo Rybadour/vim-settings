@@ -55,3 +55,48 @@
 [submodule "bundle/syntastic"]
 	path = bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git
+[submodule "bundle/vim-lesscss"]
+	path = bundle/vim-lesscss
+	url = https://github.com/vitalk/vim-lesscss.git
+[submodule "bundle/mark"]
+	path = bundle/mark
+	url = https://github.com/mbriggs/mark.vim.git
+[submodule "bundle/vim-jdaddy"]
+	path = bundle/vim-jdaddy
+	url = https://github.com/tpope/vim-jdaddy.git
+[submodule "bundle/writable_search"]
+	path = bundle/writable_search
+	url = https://github.com/AndrewRadev/writable_search.vim.git
+[submodule "bundle/projectile"]
+	path = bundle/projectile
+	url = https://github.com/tpope/vim-projectile.git
+[submodule "bundle/vim-wakatime"]
+	path = bundle/vim-wakatime
+	url = https://github.com/wakatime/vim-wakatime.git
+[submodule "bundle/vim-ninja-feet"]
+	path = bundle/vim-ninja-feet
+	url = https://github.com/tommcdo/vim-ninja-feet.git
+[submodule "bundle/vim-textobj-line"]
+	path = bundle/vim-textobj-line
+	url = https://github.com/kana/vim-textobj-line.git
+[submodule "bundle/vim-textobj-user"]
+	path = bundle/vim-textobj-user
+	url = https://github.com/kana/vim-textobj-user.git
+[submodule "bundle/vim-nowchangethat"]
+	path = bundle/vim-nowchangethat
+	url = https://github.com/tommcdo/vim-nowchangethat.git
+[submodule "bundle/vim-eunuch"]
+	path = bundle/vim-eunuch
+	url = https://github.com/tpope/vim-eunuch.git
+[submodule "bundle/splitjoin.vim"]
+	path = bundle/splitjoin.vim
+	url = https://github.com/AndrewRadev/splitjoin.vim.git
+[submodule "bundle/youcompleteme"]
+	path = bundle/youcompleteme
+	url = https://github.com/Valloric/YouCompleteMe.git
+[submodule "bundle/flappyvird"]
+	path = bundle/flappyvird
+	url = https://github.com/mattn/flappyvird-vim.git
+[submodule "bundle/vim-indent-guides"]
+	path = bundle/vim-indent-guides
+	url = https://github.com/nathanaelkane/vim-indent-guides
