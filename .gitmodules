@@ -70,9 +70,6 @@
 [submodule "bundle/projectile"]
 	path = bundle/projectile
 	url = https://github.com/tpope/vim-projectile.git
-[submodule "bundle/vim-wakatime"]
-	path = bundle/vim-wakatime
-	url = https://github.com/wakatime/vim-wakatime.git
 [submodule "bundle/vim-ninja-feet"]
 	path = bundle/vim-ninja-feet
 	url = https://github.com/tommcdo/vim-ninja-feet.git
@@ -100,3 +97,6 @@
 [submodule "bundle/vim-indent-guides"]
 	path = bundle/vim-indent-guides
 	url = https://github.com/nathanaelkane/vim-indent-guides
+[submodule "bundle/vdebug"]
+	path = bundle/vdebug
+	url = https://github.com/joonty/vdebug.git
