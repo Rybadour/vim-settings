@@ -200,6 +200,9 @@ au BufNewFile,BufRead *.js nmap <F6> :SyntasticCheck<CR>
 let g:syntastic_mode_map = { 'mode': 'passive',
 						   \ 'active_filetypes': ['javascript', 'php'],
 						   \ 'passive_filetypes': ['haxe', 'd'] }
+" Enable project specific vimrc's
+set exrc
+set secure
 let g:syntastic_d_compiler_options = '$(pkg-config --cflags --libs gtkd2)'
 
 " Tagbar configs
