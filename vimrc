@@ -123,6 +123,7 @@ au BufNewFile,BufRead *.md set filetype=markdown
 set bg=dark
 let g:solarized_termcolors=256
 let g:solarized_termtrans=1
+let g:solarized_italic=0
 colorscheme solarized
 
 hi Number guifg=Orange
@@ -200,9 +201,7 @@ au BufNewFile,BufRead *.js nmap <F6> :SyntasticCheck<CR>
 let g:syntastic_mode_map = { 'mode': 'passive',
 						   \ 'active_filetypes': ['javascript', 'php'],
 						   \ 'passive_filetypes': ['haxe', 'd'] }
-" Enable project specific vimrc's
-set exrc
-set secure
+
 let g:syntastic_d_compiler_options = '$(pkg-config --cflags --libs gtkd2)'
 
 " Tagbar configs
@@ -216,3 +215,7 @@ let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 
 " Less Css settings
 let g:lesscss_save_to = '../css/'
+
+" Enable project specific vimrc's
+set exrc
+set secure

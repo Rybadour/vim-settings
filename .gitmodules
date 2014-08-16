@@ -85,9 +85,6 @@
 [submodule "bundle/splitjoin.vim"]
 	path = bundle/splitjoin.vim
 	url = https://github.com/AndrewRadev/splitjoin.vim.git
-[submodule "bundle/youcompleteme"]
-	path = bundle/youcompleteme
-	url = https://github.com/Valloric/YouCompleteMe.git
 [submodule "bundle/flappyvird"]
 	path = bundle/flappyvird
 	url = https://github.com/mattn/flappyvird-vim.git
@@ -97,3 +94,6 @@
 [submodule "bundle/vdebug"]
 	path = bundle/vdebug
 	url = https://github.com/joonty/vdebug.git
+[submodule "bundle/typescript-vim"]
+	path = bundle/typescript-vim
+	url = https://github.com/leafgarland/typescript-vim.git
