@@ -198,6 +198,7 @@ let g:vaxe_prefer_hxml = 'compile.hxml'
 
 " Syntastic configs
 au BufNewFile,BufRead *.js nmap <F6> :SyntasticCheck<CR>
+let g:syntastic_php_phpcs_args='--standard=Squiz'
 let g:syntastic_mode_map = { 'mode': 'passive',
 						   \ 'active_filetypes': ['javascript', 'php'],
 						   \ 'passive_filetypes': ['haxe', 'd'] }
