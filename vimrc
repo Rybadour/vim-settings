@@ -198,9 +198,10 @@ let g:vaxe_prefer_hxml = 'compile.hxml'
 
 " Syntastic configs
 au BufNewFile,BufRead *.js nmap <F6> :SyntasticCheck<CR>
+let g:syntastic_javascript_checkers = ['jsxhint']
 let g:syntastic_php_phpcs_args='--standard=Squiz'
 let g:syntastic_mode_map = { 'mode': 'passive',
-						   \ 'active_filetypes': ['javascript', 'php'],
+						   \ 'active_filetypes': ['javascript', 'php', 'jsx'],
 						   \ 'passive_filetypes': ['haxe', 'd'] }
 
 let g:syntastic_d_compiler_options = '$(pkg-config --cflags --libs gtkd2)'
@@ -216,6 +217,9 @@ let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 
 " Less Css settings
 let g:lesscss_save_to = '../css/'
+
+" After text object mappings
+autocmd VimEnter * call after_object#enable('=', ':', '-', '*', '>', ' ', ';')
 
 " Enable project specific vimrc's
 set exrc

@@ -97,3 +97,9 @@
 [submodule "bundle/typescript-vim"]
 	path = bundle/typescript-vim
 	url = https://github.com/leafgarland/typescript-vim.git
+[submodule "bundle/nunjs"]
+	path = bundle/nunjs
+	url = https://github.com/Glench/Vim-Jinja2-Syntax.git
+[submodule "bundle/vim-after-object"]
+	path = bundle/vim-after-object
+	url = https://github.com/junegunn/vim-after-object.git
