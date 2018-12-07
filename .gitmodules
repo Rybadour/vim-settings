@@ -103,3 +103,45 @@
 [submodule "bundle/vim-after-object"]
 	path = bundle/vim-after-object
 	url = https://github.com/junegunn/vim-after-object.git
+[submodule "bundle/vim-snipmate"]
+	path = bundle/vim-snipmate
+	url = https://github.com/garbas/vim-snipmate.git
+[submodule "bundle/tlib_vim"]
+	path = bundle/tlib_vim
+	url = https://github.com/tomtom/tlib_vim.git
+[submodule "bundle/vim-addon-mw-utils"]
+	path = bundle/vim-addon-mw-utils
+	url = https://github.com/MarcWeber/vim-addon-mw-utils.git
+[submodule "bundles/vim-scala"]
+	path = bundles/vim-scala
+	url = https://github.com/derekwyatt/vim-scala.git
+[submodule "bundle/vim-sleuth"]
+	path = bundle/vim-sleuth
+	url = https://github.com/tpope/vim-sleuth.git
+[submodule "bundle/ruanyl-coverage-vim"]
+	path = bundle/ruanyl-coverage-vim
+	url = https://github.com/ruanyl/coverage.vim.git
+[submodule "bundle/vim-istanbul"]
+	path = bundle/vim-istanbul
+	url = https://github.com/juanpabloaj/vim-istanbul.git
+[submodule "bundle/vim-snippets"]
+	path = bundle/vim-snippets
+	url = https://github.com/honza/vim-snippets.git
+[submodule "bundle/vimux"]
+	path = bundle/vimux
+	url = https://github.com/benmills/vimux.git
+[submodule "bundle/vim-lsp"]
+	path = bundle/vim-lsp
+	url = https://github.com/prabirshrestha/vim-lsp.git
+[submodule "bundle/vim-lsp-typescript"]
+	path = bundle/vim-lsp-typescript
+	url = https://github.com/ryanolsonx/vim-lsp-typescript.git
+[submodule "bundle/async-vim"]
+	path = bundle/async-vim
+	url = https://github.com/prabirshrestha/async.vim.git
+[submodule "bundle/asyncomplete"]
+	path = bundle/asyncomplete
+	url = https://github.com/prabirshrestha/asyncomplete.vim.git
+[submodule "bundle/asyncomplete-lsp"]
+	path = bundle/asyncomplete-lsp
+	url = https://github.com/prabirshrestha/asyncomplete-lsp.vim.git

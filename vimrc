@@ -1,5 +1,6 @@
 set tabstop=4
 set shiftwidth=4
+set expandtab
 set cursorline
 set cursorcolumn
 set rnu
@@ -13,9 +14,11 @@ set timeoutlen=800
 set wildmenu
 set laststatus=2
 set formatoptions=jcr
-set textwidth=100
+set textwidth=160
 set tags=./tags;
 set foldmethod=indent
+
+let mapleader = ';'
 
 " If you prefer the Omni-Completion tip window to close when a selection is
 " made, these lines close it on movement in insert mode or when leaving
@@ -64,6 +67,8 @@ noremap d "_d
 noremap c "_c
 
 noremap r d
+
+let g:coverage_json_report_path = 'build/brazil-documentation/coverage/coverage-final.json'
 
 execute pathogen#infect()
 
@@ -122,7 +127,7 @@ au BufNewFile,BufRead *.md set filetype=markdown
 
 set bg=dark
 let g:solarized_termcolors=256
-let g:solarized_termtrans=1
+let g:solarized_termtrans=0
 let g:solarized_italic=0
 colorscheme solarized
 
@@ -144,9 +149,6 @@ au BufNewFile,BufRead *.hx set filetype=haxe
 au BufNewFile,BufRead *.hx set autowrite
 au BufNewFile,BufRead *.hx nmap <F6> :call vaxe#Ctags()<CR>:! ctags -R --languages=haxe<CR>
 let tlist_haxe_settings='haxe;f:function;v:variable;c:class;i:interface;p:package'
-
-" Twigs in Kohana projects
-au BufNewFile,BufRead *.html set filetype=twig
 
 " Less Css easy complitation
 au BufNewFile,BufRead *.less nmap <F6> :! lessc %<CR><CR>
@@ -224,3 +226,4 @@ autocmd VimEnter * call after_object#enable('=', ':', '-', '*', '>', ' ', ';')
 " Enable project specific vimrc's
 set exrc
 set secure
+set shell=/bin/bash 
